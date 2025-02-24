@@ -4,7 +4,7 @@
     background: linear-gradient(180deg, rgba(26, 0, 36, 0.9), rgba(44, 16, 54, 0.9));
     border-right: 2px solid rgba(255, 255, 255, 0.2);
     padding: 20px;
-    transition: width 0.4s ease-in-out, box-shadow 0.4s ease-in-out, width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: width 0.3s ease-in-out, box-shadow 0.3s ease-in-out, width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
     box-shadow: 0 0 15px rgba(255, 111, 0, 0.6);
     position: fixed;
     top: 0;
@@ -57,8 +57,8 @@
     text-decoration: none;
     color: white;
     border-radius: 8px;
-    opacity: 1; /* Hinzugefügt */
-    transition: opacity 0.2s ease-in-out 0.1s, background-color 0.1s ease, transform 0.2s, box-shadow 0.1s ease; /* opacity ergänzt */
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out, background-color 0.05s ease, transform 0.3s, box-shadow 0.05s ease; /* opacity ergänzt */
     width: 100%;
     max-width: 220px;
     margin: 0;
@@ -72,6 +72,7 @@
     color: #ffffff;
     box-shadow: 0 0 20px rgba(255, 111, 0, 1.8);
 	animation: pulse 2s infinite;
+	transition: opacity 0.4s ease-in-out, background-color 0.5s ease, transform 0.5s, box-shadow 0.5s ease;
 }
 
 .sidebar ul li a:hover {
