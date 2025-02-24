@@ -1,0 +1,129 @@
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(26, 0, 36, 0.9), rgba(44, 16, 54, 0.9));
+    border-right: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    transition: width 0.4s ease-in-out, box-shadow 0.4s ease-in-out, width 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 0 15px rgba(255, 111, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+}
+
+.sidebar.collapsed {
+    width: 50px; /* Eingeklappte Breite */
+}
+
+.sidebar.collapsed h2 {
+    opacity: 0;
+}
+.sidebar.collapsed ul li a span,
+.sidebar.collapsed ul li a {
+    opacity: 0; /* Statt display:none; für sanftes Einblenden */
+    pointer-events: none; /* Optional, damit im eingeklappten Zustand nicht klickbar */
+}
+
+.sidebar.collapsed .submenu {
+    display: none; /* Versteckt Texte und Untermenüs */
+}
+
+.sidebar.collapsed ul li a.active,
+.sidebar.collapsed ul li a:hover {
+    opacity: 0; /* Sanft ausblenden statt abrupt */
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.sidebar h2 {
+    transition: opacity 0.2s ease-in-out 0.1s;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    position: relative;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 12px 18px;
+    font-size: 15px;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    opacity: 1; /* Hinzugefügt */
+    transition: opacity 0.2s ease-in-out 0.1s, background-color 0.1s ease, transform 0.2s, box-shadow 0.1s ease; /* opacity ergänzt */
+    width: 100%;
+    max-width: 220px;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.sidebar ul li a.active {
+    background-color: #FF6F00;
+    font-weight: bold;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(255, 111, 0, 1.8);
+	animation: pulse 2s infinite;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(255, 111, 0, 0.6);
+    transform: translateX(5px);
+    box-shadow: 0 0 15px rgba(255, 111, 0, 0.5);
+	animation: pulse 2s infinite;
+}
+
+.submenu {
+    max-height: 0;
+	position: relative;
+	z-index: 10; /* Hebt den Glow über andere Elemente */
+    overflow: visible;
+    opacity: 0;
+	border-left: 3px solid rgba(255, 111, 0, 0.6);
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out, padding 0.3s ease-in-out;
+}
+
+.sidebar ul li:hover .submenu {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.sidebar ul li .submenu li a {
+    padding-left: 30px !important; /* Erhöhte Spezifität und erzwungene Einrückung */
+}
+
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(255, 111, 0, 0.6);
+    }
+    50% {
+        box-shadow: 0 0 18px rgba(255, 111, 0, 0.9);
+    }
+}
+
+
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: rgba(26, 0, 36, 0.9);
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 111, 0, 0.6);
+    border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 111, 0, 0.9);
+}
