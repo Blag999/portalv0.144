@@ -1,24 +1,24 @@
 /* components.css */
 
-/* 1) Buttons */
+/* BUTTONS */
 .btn {
   display: inline-block;
   padding: var(--spacing-sm) var(--spacing-md);
-  border: none;
-  border-radius: 4px;
   background-color: var(--color-primary);
   color: var(--color-light);
+  border: none;
+  border-radius: 4px;
   font-family: var(--font-family-base);
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color var(--transition-duration) var(--transition-timing);
+  transition: background-color var(--transition-duration) var(--transition-easing);
 }
 
 .btn:hover {
   background-color: var(--color-secondary);
 }
 
-/* Variante: .btn--outline */
+/* VARIANTE: Umrandet */
 .btn--outline {
   background-color: transparent;
   border: 1px solid var(--color-primary);
@@ -30,7 +30,7 @@
   color: var(--color-light);
 }
 
-/* 2) Panels / Boxes / Cards */
+/* PANELS */
 .panel {
   background-color: var(--color-light);
   border: 1px solid var(--color-border);
@@ -40,13 +40,13 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Beispiel: Card-Komponente */
+/* CARDS */
 .card {
   background-color: var(--color-light);
   border: 1px solid var(--color-border);
   border-radius: 4px;
-  overflow: hidden;
   margin-bottom: var(--spacing-md);
+  overflow: hidden;
 }
 
 .card-header {
@@ -61,7 +61,7 @@
   color: var(--color-text);
 }
 
-/* 3) Formularelemente */
+/* FORMULAR-ELEMENTE */
 .form-group {
   margin-bottom: var(--spacing-md);
 }
@@ -81,7 +81,7 @@
   color: var(--color-text);
 }
 
-/* 4) Tabellen (falls häufig genutzt) */
+/* TABELLEN */
 .table {
   width: 100%;
   border-collapse: collapse;
@@ -105,7 +105,7 @@
   background-color: #fafafa;
 }
 
-/* 5) Alerts / Meldungen */
+/* ALERTS / MELDUNGEN */
 .alert {
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: 4px;

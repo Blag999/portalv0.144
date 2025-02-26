@@ -1,40 +1,47 @@
-/* assets/css/buttons.css */
-.toggle-btn {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: #FF6F00;
-    color: white;
-    padding: 10px 14px;
-    border-radius: 50%;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    z-index: 1100;
-    transition: box-shadow 0.3s ease-in-out, background-color 0.3s, transform 0.2s ease-in-out;
+/* base.css */
+
+/* 1) Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-.toggle-btn:hover {
-    background-color: #e05a00;
-    transform: scale(1.1);
-	box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+/* 2) Standardgrundlage für HTML-Elemente */
+html {
+  font-size: 16px; /* 1rem ≈ 16px */
 }
 
-.toggle-btn:active {
-    box-shadow: 0 0 0 rgba(255, 165, 0, 0); /* Glow verschwindet sanft */
+body {
+  font-family: Arial, sans-serif; /* wird später von theme.css überschrieben */
+  background-color: #ffffff;      /* wird später von theme.css überschrieben */
+  color: #000000;                /* wird später von theme.css überschrieben */
+  line-height: 1.4;
+}
+  
+/* 3) Standard-Typografie */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  margin-bottom: 0.5em;
 }
 
-/* Sanfter Farbwechsel bei Hover */
-a:hover, button:hover {
-    transition: background-color 0.1s ease, color 0.1s ease;
-    background-color: #ff6600; /* Orange als Hover-Farbe */
-    color: #ffffff; /* Text wird weiß */
+p {
+  margin-bottom: 1em;
 }
 
-/* Sanfte Verkleinerung beim Klicken (Drück-Animation) */
-button:active {
-    transform: scale(0.95);
-    transition: transform 0.1s ease;
+/* 4) Links */
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
+/* 5) Bilder, Videos, Iframes */
+img,
+video,
+iframe {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

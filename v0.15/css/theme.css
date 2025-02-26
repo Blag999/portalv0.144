@@ -1,43 +1,40 @@
 /* theme.css */
 
 /* 
-   1) Variablen-Definition im :root 
-   - Farben, Schriften, Abstände, etc.
+   Zentrale CSS-Variablen (Farben, Schriften, Abstände etc.)
 */
 
 :root {
-  /* Farben (an dein CI angepasst) */
-  --color-primary: #395598;    /* bisherige Hauptfarbe (Header/Nav) */
-  --color-secondary: #5f88d5;  /* abgeleitete Akzentfarbe */
-  --color-background: #f2f2f2; /* Hintergrundfarbe */
-  --color-text: #333333;       /* Standard-Text */
-  --color-heading: #212121;    /* Überschriften */
-  --color-border: #cccccc;     /* zarte Trennlinien */
-  --color-light: #ffffff;      /* weißer Kontrast/Hintergrund */
+  /* Farben */
+  --color-primary: #395598;   /* Deine "Hauptfarbe" */
+  --color-secondary: #5f88d5; /* Abgeleitet für Hover/Effekte */
+  --color-background: #f2f2f2;
+  --color-text: #333333;
+  --color-heading: #212121;
+  --color-border: #cccccc;
+  --color-light: #ffffff;
 
-  /* Schriftfamilien */
+  /* Schriften */
   --font-family-base: 'Open Sans', Arial, sans-serif;
   --font-family-heading: 'Montserrat', sans-serif;
 
-  /* Schriftgrößen (kannst du anpassen, falls gewünscht) */
+  /* Schriftgrößen (Beispiel) */
   --font-size-base: 16px;
-  --font-size-h1: 2rem;    /* ~32px */
-  --font-size-h2: 1.75rem; /* ~28px */
-  --font-size-h3: 1.5rem;  /* ~24px */
+  --font-size-h1: 2rem;
+  --font-size-h2: 1.75rem;
+  --font-size-h3: 1.5rem;
 
-  /* Abstände (Spacing) */
-  --spacing-sm: 0.5rem;   /* ~8px */
-  --spacing-md: 1rem;     /* ~16px */
-  --spacing-lg: 2rem;     /* ~32px */
+  /* Abstände */
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
 
-  /* Transition für Hover-Effekte o.Ä. */
+  /* Transition-Einstellungen */
   --transition-duration: 0.3s;
-  --transition-timing: ease-in-out;
+  --transition-easing: ease-in-out;
 }
 
-/* 2) Globale Body-Styles 
-   (Falls du die Body-Styles aus base.css überschreiben willst) 
-*/
+/* Body-Einstellungen überschreiben die aus base.css */
 body {
   background-color: var(--color-background);
   color: var(--color-text);
@@ -46,16 +43,16 @@ body {
   line-height: 1.5;
 }
 
-/* 3) Überschriften mit heading-Font */
+/* Überschriften */
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-heading);
   font-family: var(--font-family-heading);
 }
 
-/* 4) Links auf Primärfarbe setzen, falls nicht anderswo überschrieben */
+/* Links */
 a {
   color: var(--color-primary);
-  transition: color var(--transition-duration) var(--transition-timing);
+  transition: color var(--transition-duration) var(--transition-easing);
 }
 
 a:hover {
