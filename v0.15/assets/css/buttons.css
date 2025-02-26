@@ -1,0 +1,40 @@
+/* assets/css/buttons.css */
+.toggle-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #FF6F00;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    z-index: 1100;
+    transition: box-shadow 0.3s ease-in-out, background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+.toggle-btn:hover {
+    background-color: #e05a00;
+    transform: scale(1.1);
+	box-shadow: 0 0 10px rgba(255, 165, 0, 0.8);
+}
+
+.toggle-btn:active {
+    box-shadow: 0 0 0 rgba(255, 165, 0, 0); /* Glow verschwindet sanft */
+}
+
+/* Sanfter Farbwechsel bei Hover */
+a:hover, button:hover {
+    transition: background-color 0.1s ease, color 0.1s ease;
+    background-color: #ff6600; /* Orange als Hover-Farbe */
+    color: #ffffff; /* Text wird weiß */
+}
+
+/* Sanfte Verkleinerung beim Klicken (Drück-Animation) */
+button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s ease;
+}
+
