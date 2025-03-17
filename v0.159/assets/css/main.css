@@ -1,0 +1,133 @@
+:root {
+  --sidebar-width: 250px;
+  --sidebar-width-collapsed: 50px;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Standardzustand Hauptinhalt */
+.main-content {
+  margin-left: var(--sidebar-width);
+  width: calc(100% - var(--sidebar-width));
+  box-sizing: border-box;
+  transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+  padding: 30px;           /* Erhöhter Innenabstand für bessere Lesbarkeit */
+  background: #1e1e1e;
+  color: #ffffff;
+  line-height: 1.6;
+  overflow: auto;
+}
+
+/* Hauptüberschrift im Hauptinhalt mit Swipe-Animation */
+.main-content h1 {
+  width: 100%;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: #ffffff;
+  /* Basis-Neon-Glow */
+  text-shadow:
+    0 0 5px rgba(255, 111, 0, 0.8),
+    0 0 10px rgba(255, 111, 0, 0.7),
+    0 0 20px rgba(255, 153, 0, 0.6),
+    0 0 30px rgba(255, 153, 0, 0.5);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  animation: neonPulse 6s ease-in-out infinite;
+}
+
+/* Pulsierender Neon-Glow-Effekt */
+@keyframes neonPulse {
+  0%, 100% {
+    text-shadow:
+      0 0 5px rgba(255, 111, 0, 0.8),
+      0 0 10px rgba(255, 111, 0, 0.7),
+      0 0 20px rgba(255, 153, 0, 0.6),
+      0 0 30px rgba(255, 153, 0, 0.5);
+  }
+  50% {
+    text-shadow:
+      0 0 10px rgba(255, 111, 0, 1),
+      0 0 20px rgba(255, 111, 0, 0.9),
+      0 0 30px rgba(255, 153, 0, 0.8),
+      0 0 40px rgba(255, 153, 0, 0.7);
+  }
+}
+
+/* Unterstrich als visueller Akzent – standardmäßig nicht animiert */
+.main-content h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(to right, #FF6F00, #FF9900);
+  border-radius: 1px;
+  width: 0;
+}
+
+/* Animierter Unterstrich: passt sich nun an die volle Breite (100%) an */
+.main-content h1.animate-underline::after {
+  animation: underlineExpand 0.5s forwards;
+}
+
+@keyframes underlineExpand {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Standardabsätze */
+.main-content p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+/* Optionale Card-Komponente zur visuellen Gliederung */
+.main-content .card {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Überschriften in Cards */
+.main-content .card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+/* Grid-Layout für mehrere Karten */
+.main-content .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Angepasster Zustand, wenn Sidebar eingeklappt ist */
+.sidebar.collapsed ~ .main-content {
+  margin-left: var(--sidebar-width-collapsed) !important;
+  width: calc(100% - var(--sidebar-width-collapsed)) !important;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 0;
+    overflow: hidden;
+  }
+  .sidebar.open {
+    width: var(--sidebar-width);
+  }
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+}

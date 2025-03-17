@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marktforschungsportal</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/sidebar.css">
+  <link rel="stylesheet" href="assets/css/buttons.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/anzeige.css">
+
+  <!-- D3.js & Plot.js Laden -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/dist/plot.umd.min.js"></script>
+<script>
+  window.Plot = Plot;
+</script>  
+</head>
+<body>
+  <!-- Der Toggle-Button ruft die globale Funktion toggleSidebar() aus sidebar.js auf -->
+  <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+
+  <div class="sidebar">
+    <h2>NAVIGATION</h2>
+    <ul>
+      <li><a href="#">Dashboard</a></li>
+      <li>
+        <a href="#">Umfragen</a>
+        <ul class="submenu">
+          <li><a href="#">Neue Umfrage</a></li>
+          <li><a href="#">Laufende Umfragen</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Datenanalyse</a>
+        <ul class="submenu">
+          <li><a href="#">Berichte</a></li>
+          <li><a href="#">Statistiken</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Downloads</a></li>
+      <li><a href="#">Einstellungen</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <h1 class="animate-underline">Dashboard</h1>
+    <p>Hier erscheinen die Inhalte des Marktforschungsportals.</p>
+    
+    <!-- Container für die Anzeige-Karten -->
+    <div id="anzeigeGrid" class="anzeige-grid"></div>
+  </div>
+
+  <!-- Vor deinen eigenen Skripten (visualizations.js etc.) -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="assets/js/script.js" defer></script>
+	<script src="assets/js/sidebar.js" defer></script>
+	<script src="assets/js/chartTheme.js"></script>
+	<script type="module" src="assets/js/visualizations.js"></script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+/* --- Bestehende Styles für den Anzeigenbereich --- */
+
+/* Anzeige-Karte (Card) */
+.main-content .anzeige-card {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover-Effekt für die Karte */
+.main-content .anzeige-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.anzeige-card.maximized:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+
+/* Grid-Layout für die Anzeige-Karten – Hier wird position: relative hinzugefügt, 
+   damit absolute Elemente (maximierte Cards) sich relativ zu diesem Container positionieren */
+.main-content .anzeige-grid {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Anpassungen für verschiedene Bildschirmgrößen */
+@media (min-width: 1600px) { 
+  .main-content .anzeige-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+@media (max-width: 1200px) { 
+  .main-content .anzeige-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 900px) { 
+  .main-content .anzeige-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) { 
+  .main-content .anzeige-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* Dummy-Grafik in der Anzeige-Karte */
+.main-content .anzeige-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.main-content .anzeige-card:hover img {
+  transform: scale(1.02);
+}
+
+/* Überschrift in der Anzeige */
+.main-content .anzeige-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #FF6F00;
+}
+
+/* Fließtext in der Anzeige */
+.main-content .anzeige-card p {
+  font-size: 1rem;
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.main-content .anzeige-card .d3-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+.main-content .anzeige-card svg {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Maximierte Card (Öffnen-Effekt) */
+.anzeige-card.maximized {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 30px;
+  box-sizing: border-box;
+  background: #1e1e1e;
+  z-index: 9999;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: techEffect 0.6s ease-out;
+  box-shadow: 0 0 15px rgba(255, 111, 0, 0.8);
+}
+
+/* Hover-Effekt im maximierten Zustand entfernen */
+.anzeige-card.maximized:hover {
+  transform: none;
+  box-shadow: 0 0 15px rgba(255, 111, 0, 0.8);
+}
+
+/* Schließen-Button (links oben) */
+.anzeige-card.maximized .close-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #FF6F00;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1rem;
+  color: white;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+/* Keyframes für den Öffnungs-Effekt */
+@keyframes techEffect {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) rotateY(10deg);
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05) rotateY(0deg);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    filter: blur(0);
+  }
+}
+
+/* Keyframes für den Schließ-Effekt */
+@keyframes techClose {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotateY(0deg);
+    filter: blur(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(0.95) rotateY(5deg);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9) rotateY(10deg);
+    filter: blur(5px);
+  }
+}
+
+/* Klasse, die beim Schließen angewendet wird – mit forwards, damit der Endzustand erhalten bleibt */
+.anzeige-card.closing {
+  animation: techClose 0.6s ease-out forwards;
+}
+
+/* Responsive Anpassungen für den Close-Button */
+@media (max-width: 600px) {
+  .anzeige-card.maximized .close-btn {
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Der Platzhalter soll die gleiche Erscheinung haben wie eine normale Card */
+.card-placeholder {
+  /* Entferne "visibility: hidden", damit der Inhalt angezeigt wird */
+  display: inline-block;
+  /* Optionale Anpassungen: z.B. gleiche Breite, Höhe, etc. werden dynamisch im JS gesetzt */
+}
+
+/* Neuer Overlay-Klon, basierend auf .maximized */
+.overlay-clone {
+  position: absolute; /* oder fixed, je nachdem wo du es einfügst */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  /* Du kannst hier den Hintergrund oder Box-Shadow definieren,
+     oder es von .maximized übernehmen lassen */
+}
+
+.overlay-clone.maximized {
+  position: absolute; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* horizontale Zentrierung aller Kinder */
+  justify-content: center;   /* vertikale Zentrierung aller Kinder */
+  padding: 30px;             /* Innenabstand, optional anpassbar */
+  box-sizing: border-box;
+  animation: techEffect 0.6s ease-out;
+}
+
+/* Chart zentrieren */
+.overlay-clone.maximized .d3-container {
+  width: 95%;                  /* nutze 95% des verfügbaren Raumes */
+  max-width: none;             /* keine feste Obergrenze */
+  height: calc(100vh - 150px);
+  min-height: 300px;
+  margin: 0 auto;              /* mittig zentrieren */
+  display: flex;               /* flexible Zentrierung des Inhalts */
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Text linksbündig */
+.overlay-clone.maximized h2,
+.overlay-clone.maximized p {
+  width: 100%;
+  text-align: left;
+}
+
+
+.overlay-clone .close-btn {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: #FF6F00;
+  border-radius: 50%;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: white;
+  cursor: pointer;
+  z-index: 10001;
+}
+
+
+
+/* Damit die Hover-Effekte bei der Kopie nicht greifen (falls gewünscht) */
+.overlay-clone:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* Falls du dieselbe Schließ-Animation (techClose) verwenden willst,
+   greift sie mit .closing so wie bei .anzeige-card. */
+.overlay-clone.closing {
+  animation: techClose 0.6s ease-out forwards;
+}

@@ -1,0 +1,53 @@
+{
+  "cards": [
+    {
+      "id": "card1",
+      "title": "Größen- & Gewichtsanalyse",
+      "type": "chart",
+      "chartName": "hexbin",
+      "chartType": "hexbin"
+    },
+    {
+      "id": "card2",
+      "title": "Aktienchart AAPL",
+      "type": "chart",
+      "chartName": "aapl",
+      "chartType": "line"
+    },
+    {
+      "id": "card3",
+      "title": "Balkendiagramm",
+      "type": "chart",
+      "chartName": "bar",
+      "chartType": "bar"
+    },
+    {
+      "id": "card4",
+      "title": "Neue Analyse 1",
+      "type": "chart",
+      "chartName": "new_chart1",
+      "chartType": "scatter"
+    },
+    {
+      "id": "card5",
+      "title": "Neue Analyse 2",
+      "type": "chart",
+      "chartName": "new_chart2",
+      "chartType": "bar"
+    },
+    {
+      "id": "card6",
+      "title": "Neue Analyse 3",
+      "type": "chart",
+      "chartName": "new_chart3",
+      "chartType": "line"
+    },
+    {
+      "id": "card7",
+      "title": "Neue Analyse 4",
+      "type": "chart",
+      "chartName": "new_chart4",
+      "chartType": "scatter"
+    }
+  ]
+}

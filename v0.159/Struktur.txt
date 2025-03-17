@@ -1,0 +1,14 @@
+/projektverzeichnis
+│── index.html
+│── assets/
+│   │── css/
+│   │   ├── styles.css
+│   │   ├── sidebar.css
+│   │   ├── buttons.css
+│   │── js/
+│   │   ├── script.js
+│   │   ├── sidebar.js
+│   │   ├── animations.js
+│── images/
+│── fonts/
+│── README.md
